@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="app" v-cloak>
-        <div class="title" v-show="status === 'options'">iView - 新建工程</div>
+        <div class="title" v-show="status === 'options'">OneItFarm - 新建工程</div>
         <div class="title" v-show="status === 'log' && titleStatus === 1">
             iView - 创建中
             <Icon type="load-c" class="ivu-load-loop"></Icon>
@@ -22,77 +22,11 @@
             iView - 创建失败
             <Icon type="ios-close-outline"  color="#ff5500"></Icon>
         </div>
-        <div class="title" v-show="status === 'next'">iView - 进一步配置</div>
+        <div class="title" v-show="status === 'next'">OneItFarm - 进一步配置</div>
         <div class="create-app">
             <div class="create-form" v-show="status === 'options'">
                 <i-form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="120">
-                    <Form-item label="iView 版本：" prop="iviewVersion">
-                        <Radio-group v-model="formValidate.iviewVersion">
-                            <Radio label="2.x">2.0.0-rc.13</Radio>
-                        </Radio-group>
-                    </Form-item>
-                    <Form-item label="CSS 预处理：" prop="css">
-                        <Checkbox-group v-model="formValidate.css">
-                            <Checkbox label="less"></Checkbox>
-                            <Checkbox label="sass"></Checkbox>
-                        </Checkbox-group>
-                    </Form-item>
-                    <Form-item label="Ajax：" prop="ajax">
-                        <div slot="label">
-                            <span>Ajax</span>
-                            <Tooltip content="基于 axios">
-                                <Icon type="ios-help" size="14" color="#3399ff"></Icon>
-                            </Tooltip>
-                            <span>：</span>
-                        </div>
-                        <i-switch v-model="formValidate.ajax">
-                            <Icon type="android-done" slot="open"></Icon>
-                            <Icon type="android-close" slot="close"></Icon>
-                        </i-switch>
-                    </Form-item>
-                    <Form-item label="多语言：" prop="i18n">
-                        <div slot="label">
-                            <span>多语言</span>
-                            <Tooltip content="基于 vue-i18n">
-                                <Icon type="ios-help" size="14" color="#3399ff"></Icon>
-                            </Tooltip>
-                            <span>：</span>
-                        </div>
-                        <i-switch v-model="formValidate.i18n">
-                            <Icon type="android-done" slot="open"></Icon>
-                            <Icon type="android-close" slot="close"></Icon>
-                        </i-switch>
-                    </Form-item>
-                    <Form-item label="状态管理：" prop="store">
-                        <Checkbox-group v-model="formValidate.store">
-                            <Checkbox label="vuex"></Checkbox>
-                            <Checkbox label="bus.js"></Checkbox>
-                        </Checkbox-group>
-                    </Form-item>
-                    <Form-item label="图表：" prop="chart">
-                        <Checkbox-group v-model="formValidate.chart">
-                            <Checkbox label="echarts"></Checkbox>
-                        </Checkbox-group>
-                    </Form-item>
-                    <Form-item label="ESLint：" prop="eslint">
-                        <i-switch v-model="formValidate.eslint">
-                            <Icon type="android-done" slot="open"></Icon>
-                            <Icon type="android-close" slot="close"></Icon>
-                        </i-switch>
-                    </Form-item>
-                    <Form-item label="附加功能：" prop="funs">
-                        <Checkbox-group v-model="formValidate.funs">
-                            <Checkbox label="cookies">Cookie（js-cookie）</Checkbox>
-                            <Checkbox label="clipboard">复制（clipboard）</Checkbox>
-                            <Checkbox label="html2canvas">HTML 转图片（html2canvas）</Checkbox>
-                            <Checkbox label="rasterizehtml">HTML 转图片（rasterizeHTML）</Checkbox>
-                        </Checkbox-group>
-                    </Form-item>
-                    <a href="javascript:void(0)" class="create-app-more" v-if="!showMore" @click="handleShowMore">
-                        <span>显示更多配置</span>
-                        <Icon type="ios-arrow-down"></Icon>
-                    </a>
-                    <div class="create-app-more-item" v-if="showMore">
+                    <div class="create-app-more-item" >
                         <Form-item label="项目名称：" prop="name">
                             <i-input v-model="formValidate.name" placeholder="请输入项目名，必须为英文且不带空格"></i-input>
                         </Form-item>
@@ -106,6 +40,45 @@
                             <i-input v-model="formValidate.git" placeholder="请输入项目所在仓库地址"></i-input>
                         </Form-item>
                     </div>
+                    <Form-item label="CSS 预处理：" prop="css">
+                        <Radio-group v-model="formValidate.css">
+                            <Radio label="sass"></Radio>
+                        </Radio-group>
+                    </Form-item>
+                    <Form-item label="Ajax：" prop="ajax">
+                        <div slot="label">
+                            <span>Ajax</span>
+                            <Tooltip content="基于 axios">
+                                <Icon type="ios-help" size="14" color="#3399ff"></Icon>
+                            </Tooltip>
+                            <span>：</span>
+                        </div>
+                        <Radio-group v-model="formValidate.ajax">
+                            <Radio label="axios"></Radio>
+                        </Radio-group>
+                    </Form-item>
+                    <Form-item label="多语言：" prop="i18n">
+                        <div slot="label">
+                            <span>多语言</span>
+                            <Tooltip content="基于 vue-i18n">
+                                <Icon type="ios-help" size="14" color="#3399ff"></Icon>
+                            </Tooltip>
+                            <span>：</span>
+                        </div>
+                        <Radio-group v-model="formValidate.i18n">
+                            <Radio label="i18n"></Radio>
+                        </Radio-group>
+                    </Form-item>
+                    <Form-item label="状态管理：" prop="store">
+                        <Radio-group v-model="formValidate.store">
+                            <Radio label="vuex"></Radio>
+                        </Radio-group>
+                    </Form-item>
+                    <Form-item label="ESLint：" prop="eslint">
+                        <Radio-group v-model="formValidate.eslint">
+                            <Radio label="eslint"></Radio>
+                        </Radio-group>
+                    </Form-item>
                 </i-form>
                 <Row class="create-app-submit">
                     <i-col span="9" offset="2">

@@ -44,17 +44,17 @@ const app = new Vue({
     data: {
         formValidate: {
             iviewVersion: '2.x',
-            css: [],
-            ajax: true,
-            i18n: false,
-            store: [],
+            css: ['sass'],
+            ajax: ['axios'],
+            i18n: ['i18n'],
+            store: ['vuex'],
             chart: [],
-            eslint: true,
+            eslint: ['eslint'],
             funs: [],
             name: '',
-            version: '1.0.0',
+            version: '0.0.1',
             desc: '',
-            git: ''
+            git: 'gitlab.oneitfarm.com'
         },
         ruleValidate: {
 
@@ -119,10 +119,7 @@ const app = new Vue({
         handleSubmit (name) {
             this.$refs[name].validate((valid) => {
                 if (valid) {
-                    saveDirectory = dialog.showOpenDialog(win, {
-                        title: '选择工程保存目录',
-                        properties: ['openDirectory', 'createDirectory']
-                    });
+                    saveDirectory = '../project/${this.name}'
 
                     if (saveDirectory) {
                         saveDirectory = saveDirectory[0];
