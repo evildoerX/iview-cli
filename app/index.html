@@ -13,21 +13,23 @@
         <div class="home-app" v-if="!isHidden">
             <Row class="home-row" type="flex" justify="center" align="middle">
                 <i-col span="24">
-                    <div class="home-logo"></div>
-                    <div class="home-name"></div>
-                    <div class="home-desc">高效、卓越的整套前端解决方案</div>
+                    <div class="home-name">weex-Ouikit</div>
+                    <div class="home-desc">智慧中台weex组件库</div>
                     <Row class="home-menu" :gutter="32">
-                        <i-col span="9" :offset="3">
-                            <i-button type="ghost" long icon="ios-plus-empty" @click="handleCreateApp">新建工程</i-button>
+                        <i-col style="margin-bottom:10px;" span="18" :offset="3">
+                            <i-input placeholder="请输入中台账号"></i-input>
                         </i-col>
-                        <i-col span="9">
-                            <i-button type="ghost" long icon="ios-keypad" @click="handleOpenDoc">离线文档</i-button>
+                        <i-col style="margin-bottom:10px;" span="18" :offset="3">
+                            <i-input placeholder="请输入密码"></i-input>
+                        </i-col>
+                        <i-col span="18" :offset="3">
+                            <i-button type="ghost" long icon="ios-plus-empty" @click="handleCreateApp">立即登录</i-button>
                         </i-col>
                     </Row>
                 </i-col>
             </Row>
             <div class="home-version">
-                当前 iView 版本：<a href="javascript:void(0)" @click="checkUpdate(true)">2.0.0-rc.13</a>
+                当前 OUI 版本：<a href="javascript:void(0)" @click="checkUpdate(true)">0.0.49</a>
             </div>
         </div>
         <Modal

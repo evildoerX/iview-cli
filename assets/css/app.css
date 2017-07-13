@@ -30,17 +30,11 @@ body{
 .home-row{
     height: 100%;
 }
-.home-logo, .home-name{
-    width: 90px;
-    height: 90px;
+.home-name{
+    font-size: 40px;
     margin: 0 auto;
-    background-image: url("../img/iview-logo.png");
     background-repeat: no-repeat;
     background-size: cover;
-}
-.home-name{
-    height: 40px;
-    background-image: url("../img/iview-name.png");
 }
 .home-desc{
     margin: 20px 0 20px;
