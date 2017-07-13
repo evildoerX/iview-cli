@@ -17,7 +17,7 @@ const app = new Vue({
     },
     methods: {
         handleCreateApp () {
-            window.location.href = 'create.html';
+            window.location.href = 'project_list.html';
         },
         handleOpenDoc () {
             this.isHidden = true;

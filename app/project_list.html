@@ -8,22 +8,17 @@
     <link rel="stylesheet" href="../assets/css/app.css">
 </head>
 <body>
-    <div class="title"></div>
+    <div class="title">项目列表</div>
     <div id="app" v-cloak>
         <div class="home-app" v-if="!isHidden">
             <Row class="home-row" type="flex" justify="center" align="middle">
                 <i-col span="24">
-                    <div class="home-name">weex-Ouikit</div>
-                    <div class="home-desc">智慧中台weex组件库</div>
                     <Row class="home-menu" :gutter="32">
                         <i-col style="margin-bottom:10px;" span="18" :offset="3">
-                            <i-input placeholder="请输入中台账号"></i-input>
-                        </i-col>
-                        <i-col style="margin-bottom:10px;" span="18" :offset="3">
-                            <i-input placeholder="请输入密码"></i-input>
+                            <i-button style="height:100px;" type="ghost" long icon="ios-plus-empty" @click="handleCreateApp">App名称</i-button>
                         </i-col>
                         <i-col span="18" :offset="3">
-                            <i-button type="ghost" long @click="handleCreateApp">立即登录</i-button>
+                            <i-button type="ghost" long icon="ios-plus-empty" @click="handleCreateApp">立即创建app</i-button>
                         </i-col>
                     </Row>
                 </i-col>
